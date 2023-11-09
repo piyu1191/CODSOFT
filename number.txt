@@ -1,0 +1,56 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        Random random= new Random();
+        int lowerBound=1;
+        int upperBound= 100;
+        int maxAttempts=10;
+        int score=0;
+        
+        System.out.println("Welcome to Number Game:");
+        
+        do{
+            int targetNumber=random.nextInt(upperBound-lowerBound+1)+lowerBound;
+            int attempts=0;
+            boolean hasGuessedCorrectly=false;
+            
+            System.out.println("I am thinking of a number between"+ lowerBound+"and"+upperBound+".");
+            System.out.println("You have"+maxAttempts+"attempts to guess:");
+            
+            while(attempts<maxAttempts){
+                System.out.println("Enter Your Guess Number:");
+                int userGuess=sc.nextInt();
+                attempts++;
+                
+                if(userGuess == targetNumber){
+                    hasGuessedCorrectly=true;
+                    System.out.println("Congratulations!You guessed the number correctly in" + attempts+"attempts");
+                    break;
+                    
+                }else if (userGuess<targetNumber){
+                    System.out.println("Too low.Please try again!");
+                }else{
+                    System.out.println("Too high.Please try again!");
+                }
+            }
+            if(!hasGuessedCorrectly){
+                System.out.println("Oops,you have used your all attempts.The correct number was"+ targetNumber + ".");
+            }
+            else{
+                score++;
+            }
+            System.out.println("Do you want to play again?(Yes/No):");
+            String playAgain=sc.next().toLowerCase();
+            if(!playAgain.equals("Yes")){
+                break;
+            }
+                
+           }
+            while (true);
+            System.out.println("Thankyou for playing!Your final score is:"+score);
+            sc.close();
+        }
+    }

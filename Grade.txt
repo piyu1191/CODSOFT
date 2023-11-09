@@ -1,0 +1,40 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        int Total_Marks=0;
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter your Maths marks out of 100:");
+        int Maths=sc.nextInt();
+        System.out.println("Enter your Hindi marks out of 100:");
+        int Hindi=sc.nextInt();
+        System.out.println("Enter your English marks out of 100:");
+        int English=sc.nextInt();
+        System.out.println("Enter your Science marks out of 100:");
+        int Science=sc.nextInt();
+        System.out.println("Enter your Computer marks out of 100:");
+        int Computer=sc.nextInt();
+        
+        Total_Marks=(Maths+Hindi+English+Science+Computer);
+        System.out.println("Total_Marks:"+ Total_Marks);
+        
+        float Average_Percentage=((Maths+Hindi+English+Science+Computer)/500.0f)*100;
+        
+        System.out.println("Average_Percentage:"+ Average_Percentage);
+        
+        char Grade;
+        if(Average_Percentage>=90){
+            Grade='A';
+        }else if(Average_Percentage>=80){
+            Grade='B';
+        }else if(Average_Percentage>=70){
+            Grade='C';
+        }else if(Average_Percentage>=60){
+            Grade='D';
+        }else{
+            Grade='E';
+        }
+        
+        System.out.println("Grade:"+ Grade);
+        
+       }
+}
